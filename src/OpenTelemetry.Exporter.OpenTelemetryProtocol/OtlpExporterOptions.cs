@@ -16,6 +16,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Net.Http;
 using OpenTelemetry.Internal;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
@@ -123,5 +124,10 @@ namespace OpenTelemetry.Exporter
         /// and Sum metrics.
         /// </summary>
         public AggregationTemporality AggregationTemporality { get; set; } = AggregationTemporality.Cumulative;
+
+        /// <summary>
+        /// Gets or sets the DelegatingHandler applied to HttpClient requests. Ignored unless <c>Protocol</c> is <c>HttpProtobuf</c>.
+        /// </summary>
+        public DelegatingHandler DelegatingHandler { get; set; }
     }
 }
